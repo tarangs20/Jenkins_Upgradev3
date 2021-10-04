@@ -28,8 +28,10 @@ pipeline{
         timeout(2){
           input message: "Proceed to Production?"
         }
-        sh 'set +x'
-        sh "mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war"
+        sh '''
+          set +x
+          mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
+        '''
       }
     }
 
