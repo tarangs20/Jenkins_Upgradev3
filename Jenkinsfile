@@ -28,7 +28,7 @@ pipeline{
           input message: "Proceed to Production?"
         }
       
-        mv "/opt/tomcat/staging/java-tomcat-maven-example.war" "/opt/tomcat/apache-tomcat-9.0.53_prod/webapps/production.war"
+        sh "mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/production.war"
       }
     }
 
