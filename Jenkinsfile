@@ -15,9 +15,20 @@ pipeline{
       }
     }
 
-    stage('Deploying to Staging'){
+    stage('Deploying to Production'){
       steps{
       copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, flatten: true, projectName: 'Pipeline_Package_Creation', target: '/opt/tomcat/staging'
+      echo "Artifacts copied to Staging"
+      }
+    }
+
+    stage('Production Deployment'){
+      steps{
+        timeout(2){
+          input message: "Proceed to Production?"
+        }
+      
+        mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/production.war
       }
     }
 
