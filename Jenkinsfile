@@ -7,6 +7,16 @@ pipeline {
              }
         }
 
+        stage('File Location'){
+          steps{
+            sh '''
+                echo " File location is"
+                pwd
+            '''
+          }
+
+        }
+
         stage('Deploy') {
             steps{
               echo "Dummy deploy"
@@ -14,4 +24,3 @@ pipeline {
         }
     }
 }
-
