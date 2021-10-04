@@ -15,5 +15,11 @@ pipeline{
       }
     }
 
+    stage('Deploying to Staging'){
+      steps{
+      copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, flatten: true, projectName: 'Pipeline_Package_Creation', target: '/opt/tomcat/staging'
+      }
+    }
+
   }
 }
