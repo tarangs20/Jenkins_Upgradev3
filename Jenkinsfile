@@ -30,7 +30,9 @@ pipeline{
         }
         sh '''
           set +x
+          /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
           mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
+          echo "Deployed to Production"
         '''
       }
     }
