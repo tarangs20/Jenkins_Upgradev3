@@ -4,20 +4,14 @@ pipeline {
         stage('Init') {
             steps{
               echo "Init stage"
-            }
-
-            stage('Test') {
+             }
         }
 
-            steps {
-              echo "dummy stage test"
-            }
-        }
-
-        stage('Deployment'){
+        stage('Deploy') {
             steps{
-              echo "done"
-            }
+              echo "Dummy deploy"
+             }
         }
     }
 }
+
