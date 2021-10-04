@@ -1,26 +1,19 @@
-pipeline {
-    agent any
-    stages {
-        stage('Init') {
-            steps{
-              echo "Init stage"
-             }
-        }
+pipeline{
+  agent any
+  stages{
 
-        stage('File Location'){
-          steps{
-            sh '''
-                echo " File location is"
-                pwd
-            '''
-          }
+    stage('Building Package'){
+      steps{
+        sh 'maven -f java-tomcat-sample/pom.xml clean package'
+      }
 
+      post {
+        success{
+          echo "Artifacts has been created...Archiving it"
+          archiveArtifacts artifacts: '**/*.war'
         }
-
-        stage('Deploy') {
-            steps{
-              echo "Dummy deploy"
-             }
-        }
+      }
     }
+
+  }
 }
