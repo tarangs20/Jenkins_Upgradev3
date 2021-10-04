@@ -6,18 +6,18 @@ pipeline {
               echo "Init stage"
             }
 
+            stage('Test') {
         }
 
-        stage('Test') {
             steps {
               echo "dummy stage test"
-              pwd
             }
         }
 
-        stage('Deployment')
+        stage('Deployment'){
             steps{
               echo "done"
             }
+        }
     }
 }
