@@ -30,7 +30,7 @@ pipeline{
         }
         sh '''
           set +x
-          rm -f /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
+          rm -f /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod
           mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
           echo "Deployed to Production"
         '''
