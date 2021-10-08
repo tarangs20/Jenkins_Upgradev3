@@ -30,9 +30,12 @@ pipeline{
         }
         sh '''
           set +x
+          sudo /opt/tomcat/apache-tomcat-9.0.53_prod/bin/shutdown.sh
           sudo rm -rf /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod/
+          sudo rm -rf /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
           mv /opt/tomcat/staging/java-tomcat-maven-example.war /opt/tomcat/apache-tomcat-9.0.53_prod/webapps/prod.war
           echo "Deployed to Production"
+          sudo /opt/tomcat/apache-tomcat-9.0.53_prod/bin/startup.sh
         '''
       }
     }
