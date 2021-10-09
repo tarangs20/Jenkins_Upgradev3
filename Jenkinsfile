@@ -34,10 +34,24 @@ pipeline{
     }
 
     stage('Production Deployment'){
+      agent { label 'jenkins_slave_1' }
       steps{
         timeout(2){
           input message: "Proceed to Production?"
         }
+        
+         copyArtifacts filter: '**/*.war', fingerprintArtifacts: true, flatten: true, projectName: 'Pipeline_Package_Creation_Deployment', target: '/opt/apache/production_artifacts/'
+      echo "Artifacts copied to Production"
+        
+        sh '''
+          set +x
+          sudo /opt/apache/apache-tomcat-9.0.54/bin/shutdown.sh
+          sudo rm -rf /opt/apache/apache-tomcat-9.0.54/webapps/PROD/
+          sudo rm -rf /opt/apache/apache-tomcat-9.0.54/webapps/PROD.war
+          mv /opt/apache/production_artifacts/java-tomcat-maven-example.war /opt/apache/apache-tomcat-9.0.54/webapps/PROD.war
+          echo "Deployed to PROD"
+          sudo /opt/apache/apache-tomcat-9.0.54/bin/startup.sh
+        '''
         
       }
     }
