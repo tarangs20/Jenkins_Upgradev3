@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build Application') {
             steps {
-                cleanWs()
+                
                 sh 'mvn -f java-tomcat-sample/pom.xml clean package'
             }
             post {
@@ -23,6 +23,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -a"
                 sh "docker build ./java-tomcat-sample-docker -t tomcatsamplewebapp"
+                cleanWs()
             }
         }
 
