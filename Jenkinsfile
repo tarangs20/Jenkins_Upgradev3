@@ -15,10 +15,6 @@ pipeline {
     }
   }
 
-  stage ('Building Docker Image'){
-    steps{
-      sh "docker build . -t tomcat_docker_sample"
-    }
-  }
+  
  }
 }
