@@ -10,7 +10,7 @@ pipeline {
 
     post{
       success {
-        archiveArtifacts artifacts: '**/*.war'
+        archiveArtifacts artifacts: 'java-tomcat-sample-docker/*.war'
       }
     }
   }
