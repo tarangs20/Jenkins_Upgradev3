@@ -1,6 +1,6 @@
 pipeline {
  agent any
- options { timestamp() }
+  options { timestamps () }
 
  stages{
   stage('Building Application Package'){
