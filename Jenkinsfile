@@ -5,7 +5,7 @@ pipeline {
  stages{
   stage('Building Application Package'){
     steps{
-     sh 'maven -f java-tomcat-sample-docker/pom.xml clean package'
+     sh 'mvn -f java-tomcat-sample-docker/pom.xml clean package'
     }
 
     post{
