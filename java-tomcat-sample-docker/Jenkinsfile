@@ -10,7 +10,7 @@ pipeline {
                     echo "Now Archiving the Artifacts...."
                     archiveArtifacts artifacts: '**/*.war'
                     sh "pwd"
-                    sh "cp java-tomcat-sample/target/java-tomcat-maven-example.war java-tomcat-sample-docker/ "
+                    sh "cp java-tomcat-sample/target/java-tomcat-maven-example.war java-tomcat-sample-docker/artifacts/ "
                     sh "ls"
                 }
             }
