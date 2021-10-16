@@ -11,7 +11,7 @@ pipeline {
                     archiveArtifacts artifacts: '**/*.war'
                     sh "pwd"
                     sh "mkdir -p java-tomcat-sample-docker/artifacts "
-                    sh "cp java-tomcat-sample/target/java-tomcat-maven-example.war java-tomcat-sample-docker/artifacts/ "
+                    sh "cp java-tomcat-sample/target/java-tomcat-maven-example.war java-tomcat-sample-docker/artifacts/app.war "
                     sh "ls"
                 }
             }
