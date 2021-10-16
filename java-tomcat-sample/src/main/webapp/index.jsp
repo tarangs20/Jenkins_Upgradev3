@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello Pipline Deployment...</h2>
+<h2>Hello Docker deployment successful...</h2>
 </body>
 </html>
