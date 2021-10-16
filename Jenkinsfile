@@ -20,6 +20,7 @@ pipeline {
                 sh "pwd"
                 sh "ls -a"
                 sh "docker build . -t tom_sample"
+                cleanWs()
                 
             }
         }
